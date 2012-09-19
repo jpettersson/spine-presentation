@@ -9,8 +9,8 @@
 # CommonJs gives us nice module imports.
 //= require 'sprockets/commonjs'
 
-# Using the CoffeeScript source of Spine, directly from the repo.
-//= require './lib/spine/src/spine'
+# Using the CoffeeScript source of Spine, directly from the symlinked spine submodule.
+//= require './vendor/spine/spine'
 
 # Require our MVC(T) files
 //= require_tree './controllers'

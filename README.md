@@ -7,3 +7,4 @@ Related
 -------
 
 https://github.com/uglyog/clientside-haml-js
+https://github.com/petebrowne/sprockets-sass

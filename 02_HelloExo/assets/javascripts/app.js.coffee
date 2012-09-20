@@ -16,6 +16,9 @@
 # Pull in the exo.js coffeescript source from the symlinked submodule.
 //= require_tree './vendor/exo/'
 
+# TweenMax for nice animations.
+//= require './vendor/TweenMax.min'
+
 # Require our MVC(T) files
 //= require_tree './controllers'
 //= require_tree './models'
@@ -31,6 +34,9 @@ class App extends Spine.Controller
 		super opts
 		@superstars = new Superstars
 		@append @superstars
+
+		@superstars.prepare()
+		@superstars.activate()
 
 # Time to start the app, let jQuery kick us off. 
 $ ->

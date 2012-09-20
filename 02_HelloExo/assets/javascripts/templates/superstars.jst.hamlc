@@ -1,5 +1,4 @@
 %h1 Hello Exo!
 .items
-	!=stars
 .input
 	%input{type: 'text', autofocus: 'autofocus'}

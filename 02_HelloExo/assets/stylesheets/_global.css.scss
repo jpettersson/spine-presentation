@@ -12,9 +12,11 @@ html {
 	//background-color: #eff;
 	//border-radius: 8px;
 	//opacity:0.4;
+	position: relative;
 
 	text-align: center;
 	.item {
+		position: relative;
 		display: block;
 		margin-right: 20px;
 	}
@@ -39,6 +41,8 @@ html {
 	}
 
 	.input {
+		display: none;
+		
 		input {
 			margin: 0;
 			padding: 0;

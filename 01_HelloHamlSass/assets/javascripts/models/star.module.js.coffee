@@ -1,5 +1,5 @@
 class Star extends Spine.Model
-	@configure "Star", "name"
+	@configure "Star", "name", "optional"
 	@extend Spine.Model.Local
 
 	@DEFAULTS: ['CoffeeScript', 'Spine', 'HAML', "SASS"]
@@ -7,7 +7,10 @@ class Star extends Spine.Model
 	@createDefaults: ->
 		for name in @DEFAULTS
 			if Star.select((star) -> star.name == name).length == 0
-				star = new Star({name: name})
+				star = new Star
+					name: name
+					optional: false
+					
 				star.save()
 
 module.exports = Star

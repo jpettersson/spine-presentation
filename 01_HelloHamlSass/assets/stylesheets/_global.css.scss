@@ -1,5 +1,52 @@
 html {
-	background-color: #000;
+	background-image: url(txture.png);
 	color: #fff;
-	font-family: Arial;
+	font-family: Tahoma;
+	margin: 0;
+	padding: 0;
+}
+
+.superstars {
+	//background-color: #eff;
+	//border-radius: 8px;
+	//opacity:0.4;
+
+	text-align: center;
+	.item {
+		display: block;
+		margin-right: 20px;
+	}
+
+	h1 {
+		font-size: 62pt;
+		text-align: center;
+		font-style: italic;
+	}
+
+	h2 {
+		font-size: 32pt;
+	}
+
+	button {
+		width: 30px;
+		height: 30px;
+		border-radius: 8px;
+		background-color: #fff;
+		font-size: 20px;
+	}
+
+	.input {
+		input {
+			margin: 0;
+			padding: 0;
+			width: 400px;
+			height: 50px;
+			background: none;
+			border: 1px solid #fff;
+			border-radius: 8px;
+			color: #fff;
+			font-size: 32px;
+			text-align: center;
+		}
+	}	
 }

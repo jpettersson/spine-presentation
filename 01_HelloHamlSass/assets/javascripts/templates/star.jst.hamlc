@@ -1,2 +1,6 @@
 .item
-	%h2= name
+	%h2!= "&#9734; " + name
+	- if (optional) { 
+		%button{'data-id': id}
+			x
+	- }

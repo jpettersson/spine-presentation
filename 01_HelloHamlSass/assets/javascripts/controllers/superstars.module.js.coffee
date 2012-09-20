@@ -12,7 +12,7 @@ class Superstars extends Spine.Controller
 		'.items': 'itemsEl'
 		'.input input': 'inputEl'
 
-	# Similarly, we have this shortcut to bind to some 
+	# Similarly, we have this jQuery shortcut to bind to some 
 	# interesting DOM events.
 	events:
 		'keyup .input input': 'createStar'
@@ -53,15 +53,15 @@ class Superstars extends Spine.Controller
 		@html JST['templates/superstars']({stars: stars})
 
 	createStar: (e) ->
-		# enter was pressed?
-		if e.keyCode == 13
+		# enter was pressed? we have some content?
+		if e.keyCode == 13 & @inputEl.val().length > 0
 			
 			# create a new Star record 
 			star = new Star
 				name: @inputEl.val()
 				optional: true
 			
-			# save it to local storage
+			# save record to local storage
 			star.save()
 
 			# clear the input field

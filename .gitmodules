@@ -1,3 +1,6 @@
 [submodule "shared/spine"]
 	path = shared/spine
 	url = https://github.com/maccman/spine.git
+[submodule "shared/exo"]
+	path = shared/exo
+	url = git@github.com:jpettersson/exo.js.git

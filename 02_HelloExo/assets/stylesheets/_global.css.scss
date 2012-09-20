@@ -1,0 +1,55 @@
+$greenish: #d0f9a9;
+
+html {
+	background-image: url(txture.png);
+	color: $greenish;
+	font-family: Tahoma;
+	margin: 0;
+	padding: 0;
+}
+
+.superstars {
+	//background-color: #eff;
+	//border-radius: 8px;
+	//opacity:0.4;
+
+	text-align: center;
+	.item {
+		display: block;
+		margin-right: 20px;
+	}
+
+	h1 {
+		font-size: 62pt;
+		text-align: center;
+		font-style: italic;
+	}
+
+	h2 {
+		font-size: 32pt;
+	}
+
+	button {
+		width: 30px;
+		height: 30px;
+		border-radius: 8px;
+		border: 1px solid $greenish;
+		background-color: $greenish;
+		font-size: 20px;
+	}
+
+	.input {
+		input {
+			margin: 0;
+			padding: 0;
+			width: 400px;
+			height: 50px;
+			background: none;
+			border: 1px solid $greenish;
+			border-radius: 8px;
+			color: $greenish;
+			font-size: 32px;
+			text-align: center;
+		}
+	}	
+}

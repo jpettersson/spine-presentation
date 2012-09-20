@@ -1,5 +1,7 @@
 class Star extends Exo.Model
-	@configure "Star", "name", "optional"
+	# 'Exo' is appended to the name in order to avoid 
+	# collitions between the examples. 
+	@configure "ExoStar", "name", "optional"
 	@extend Spine.Model.Local
 
 	@DEFAULTS: [

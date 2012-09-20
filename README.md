@@ -11,10 +11,11 @@ An introduction to Spine.js. This example focuses on how to get HAML to play nic
 -----------
 A quick overview of the core features of Exo.js, a Spine.js extention library I've been working on.
 
-Assorted Links
+Related Links
 -------
 
-http://spinejs.com/
-https://github.com/jpettersson/exo.js/tree/sprockets
-https://github.com/uglyog/clientside-haml-js
-https://github.com/petebrowne/sprockets-sass
+https://github.com/maccman/catapult		
+http://spinejs.com/		
+https://github.com/jpettersson/exo.js/tree/sprockets 	
+https://github.com/uglyog/clientside-haml-js	
+https://github.com/petebrowne/sprockets-sass	

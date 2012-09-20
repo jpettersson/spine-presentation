@@ -1,4 +1,5 @@
 Star = require 'models/star'
+StarController = require 'controllers/superstars/star'
 
 class Superstars extends Exo.Controller
 
@@ -15,12 +16,14 @@ class Superstars extends Exo.Controller
 	# Similarly, we have this jQuery shortcut to bind to some 
 	# interesting DOM events.
 	events:
+		'click .machines': 'navigateToMachines'
 		'keyup .input input': 'createStar'
-		'click button': 'deleteStar'
+		'click .item button': 'deleteStar'
 
 	prepare: ->
 		# first, draw the DOM objects we need.
 		@render()
+		@el.hide()
 		
 		# The Exo.List will render our collection of Star objects and 
 		# instantiate/destroy appropriate controllers.
@@ -30,7 +33,7 @@ class Superstars extends Exo.Controller
 		# the collection.
 		@list = new Exo.List
 			el: @itemsEl
-			controller: require 'controllers/star'
+			controller: StarController
 
 		# Initialize the local storage for our model. In an AJAX situation we would run this 
 		# when we want new data from the server.
@@ -46,6 +49,7 @@ class Superstars extends Exo.Controller
 		@list.render Star.all()
 
 	doActivate: ->
+		@el.show()
 		TweenLite.from(@el, 3, {
 			css: {
 				left: -500
@@ -57,6 +61,8 @@ class Superstars extends Exo.Controller
 		})
 
 	onActivated: =>
+		super
+
 		Star.bind 'refresh change', @renderList
 		@renderList()
 
@@ -68,7 +74,15 @@ class Superstars extends Exo.Controller
 			},
 		})
 
-		super
+	doDeactivate: ->
+		TweenLite.to(@el, 2, {
+			css: {
+				rotation: 360
+				alpha: 0
+			},
+			ease: Quad.easeIn,
+			onComplete: => @onDeactivated()
+		})
 
 	createStar: (e) ->
 		# enter was pressed? we have some content?
@@ -89,5 +103,8 @@ class Superstars extends Exo.Controller
 		id = $(e.target).attr('data-id')
 		star = Star.find(id)
 		star.destroy() if star
+
+	navigateToMachines: =>
+		@navigate '/machines'
 
 module.exports = Superstars

@@ -12,6 +12,7 @@
 # Using the CoffeeScript source of Spine, directly from the symlinked spine submodule.
 //= require './vendor/spine/spine'
 //= require './vendor/spine/local'
+//= require './vendor/spine/route'
 
 # Pull in the exo.js coffeescript source from the symlinked exo submodule.
 //= require_tree './vendor/exo/'
@@ -24,8 +25,8 @@
 //= require_tree './models'
 //= require_tree './templates'
 
-# Importing our Superstars controller with the CommonJS function 'require'.
-Superstars = require 'controllers/superstars'
+# Importing our Main controller with the CommonJS function 'require'.
+Main = require 'controllers/main'
 
 # Creating a minimal root controller to keep a reference to the body tag.
 class App extends Spine.Controller
@@ -36,17 +37,19 @@ class App extends Spine.Controller
 		super
 		
 		# instantiate a superstars controller
-		@superstars = new Superstars
+		@main = new Main
 
 		# append it to @el, which happens to be '<body/>'		
-		@append @superstars
+		@append @main
+		
+		@routes
+			'/superstars': ->
+				@main.superstars()
 
-		# call the Exo method prepare to tell the controller to get ready
-		# to be added to the DOM and do stuff.
-		@superstars.prepare()
+			'/machines': ->
+				@main.machines()
 
-		# tell the superstar controller to show up.
-		@superstars.activate()
+		@navigate '/superstars'
 
 # Time to start the app, let jQuery kick us off. 
 $ ->

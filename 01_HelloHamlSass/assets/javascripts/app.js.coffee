@@ -13,7 +13,7 @@
 //= require './vendor/spine/spine'
 //= require './vendor/spine/local'
 
-# Require our MVC(T) files
+# Require our MVC files
 //= require_tree './controllers'
 //= require_tree './models'
 //= require_tree './templates'
@@ -24,9 +24,15 @@ Superstars = require 'controllers/superstars'
 # Creating a minimal root controller to keep a reference to the body tag.
 class App extends Spine.Controller
 
-	constructor: (opts={})->
-		super opts
+	constructor: ()->
+		# it's important to call the super since we are passing in an options
+		# object containing the el reference.
+		super
+		
+		# instantiate a Superstars controller
 		@superstars = new Superstars
+
+		# append it to @el, which happens to be '<body/>'
 		@append @superstars
 
 # Time to start the app, let jQuery kick us off. 

@@ -19,8 +19,15 @@ class Superstars extends Exo.Controller
 		'click button': 'deleteStar'
 
 	prepare: ->
+		# first, draw the DOM objects we need.
 		@render()
-		console.log @itemsEl
+		
+		# The Exo.List will render our collection of Star objects and 
+		# instantiate/destroy appropriate controllers.
+		# Note how Exo.List is inheriting from Spine.Controller and can be 
+		# assigned an element by passing in the 'el' parameter.
+		# We are also specifying a controller class to handle each item in 
+		# the collection.
 		@list = new Exo.List
 			el: @itemsEl
 			controller: require 'controllers/star'
@@ -32,13 +39,10 @@ class Superstars extends Exo.Controller
 		# No data is no fun, let's create some default Stars.
 		Star.createDefaults()
 
-
 	render: =>
-		#		stars = Star.all().map((star) -> element = JST['templates/star'](star)).join('')		
 		@html JST['templates/superstars']()
 
 	renderList: =>
-		console.log 'Render list'
 		@list.render Star.all()
 
 	doActivate: ->
@@ -56,6 +60,7 @@ class Superstars extends Exo.Controller
 		Star.bind 'refresh change', @renderList
 		@renderList()
 
+		# making the .input visible before the animation
 		$('.input').show()
 		TweenLite.from($('.input'), 5, {
 			css: {

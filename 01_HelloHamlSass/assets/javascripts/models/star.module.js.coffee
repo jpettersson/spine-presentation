@@ -2,7 +2,12 @@ class Star extends Spine.Model
 	@configure "Star", "name", "optional"
 	@extend Spine.Model.Local
 
-	@DEFAULTS: ['CoffeeScript', 'Spine.js', 'HAML', "SASS"]
+	@DEFAULTS: [
+		'CoffeeScript', 
+		'Spine.js', 
+		'HAML', 
+		"SASS"
+	]
 
 	@createDefaults: ->
 		for name in @DEFAULTS
